@@ -44,3 +44,8 @@ $ poetry run document
 ```sh
 $ poetry build
 ```
+
+## Create Git commit hook
+```sh
+$ poetry run pre-commit install
+```
