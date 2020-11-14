@@ -33,4 +33,4 @@ def document():
     print("document")
     opt = "-f" if os.path.exists(os.path.join("docs", "conf.py")) else "-F"
     call(["sphinx-apidoc", opt, "-o", "docs", PACKAGE_NAME])
-    #call(["make", "-C", "docs", "html"])
+    call(["make", "-C", "docs", "html"])
