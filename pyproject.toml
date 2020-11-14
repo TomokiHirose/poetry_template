@@ -28,6 +28,28 @@ format = "script:format"
 lint = "script:lint"
 document = "script:document"
 
+[tool.black]
+line-length = 150
+target-version = ['py38']
+include = '\.py?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | docs
+  )/
+)
+'''
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
