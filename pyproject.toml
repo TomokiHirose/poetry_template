@@ -28,6 +28,7 @@ radon = "^4.3.2"
 format = "script:format"
 lint = "script:lint"
 document = "script:document"
+metrics = "script:metrics"
 
 [tool.black]
 line-length = 150

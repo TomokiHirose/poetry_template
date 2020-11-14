@@ -40,6 +40,11 @@ $ poetry run lint
 $ poetry run document
 ```
 
+## Compute Metrics
+```sh
+$ poetry run metrics
+```
+
 ## Build(create wheel)
 ```sh
 $ poetry build

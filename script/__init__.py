@@ -30,7 +30,15 @@ def lint():
 
 
 def document():
-    print("document")
     opt = "-f" if os.path.exists(os.path.join("docs", "conf.py")) else "-F"
     call(["sphinx-apidoc", opt, "-o", "docs", PACKAGE_NAME])
     call(["make", "-C", "docs", "html"])
+
+
+def metrics():
+    logger.info("Analyze the given Python modules and compute Cyclomatic Complexity (CC).")
+    call(["poetry", "run", "radon", "cc", "-s", PACKAGE_NAME])
+    logger.info("Analyze the given Python modules and compute the Maintainability Index.")
+    call(["poetry", "run", "radon", "mi", "-s", PACKAGE_NAME])
+    logger.info("Analyze the given Python modules and compute raw metrics.")
+    call(["poetry", "run", "radon", "raw", "-s", PACKAGE_NAME])
