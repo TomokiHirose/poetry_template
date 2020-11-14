@@ -23,7 +23,7 @@ $ poetry update
 $ poetry run pytest
 ```
 
-### Forat
+### Format
 ```sh
 # black and isot work for template dirs
 $ poetry run format
