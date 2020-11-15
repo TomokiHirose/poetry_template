@@ -28,7 +28,8 @@ radon = "^4.3.2"
 test = "script:test"
 format = "script:format"
 lint = "script:lint"
-document = "script:document"
+apidoc = "script:api_document"
+testdoc = "script:test_document"
 metrics = "script:metrics"
 
 [tool.black]

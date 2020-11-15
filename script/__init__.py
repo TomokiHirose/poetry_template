@@ -4,9 +4,7 @@ import logzero
 from logzero import logger
 from subprocess import check_call, call
 
-formatter = logzero.LogFormatter(
-    fmt="%(color)s[%(levelname)1.1s %(asctime)s]%(end_color)s %(message)s"
-)
+formatter = logzero.LogFormatter(fmt="%(color)s[%(levelname)1.1s %(asctime)s]%(end_color)s %(message)s")
 logzero.setup_default_logger(formatter=formatter)
 
 
@@ -29,10 +27,16 @@ def lint():
     call(["flake8", "template"])
 
 
-def document():
-    opt = "-f" if os.path.exists(os.path.join("docs", "conf.py")) else "-F"
-    call(["sphinx-apidoc", opt, "-o", "docs", PACKAGE_NAME])
-    call(["make", "-C", "docs", "html"])
+def api_document():
+    opt = "-f" if os.path.exists(os.path.join("docs/api", "conf.py")) else "-F"
+    call(["sphinx-apidoc", opt, "-M", "-e", "-o", "docs/api", PACKAGE_NAME])
+    call(["make", "-C", "docs/api", "html"])
+
+
+def test_document():
+    opt = "-f" if os.path.exists(os.path.join("docs/test", "conf.py")) else "-F"
+    call(["sphinx-apidoc", opt, "-M", "-e", "-o", "docs/test", "tests"])
+    call(["make", "-C", "docs/test", "html"])
 
 
 def metrics():
