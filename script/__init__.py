@@ -37,8 +37,13 @@ def document():
 
 def metrics():
     logger.info("Analyze the given Python modules and compute Cyclomatic Complexity (CC).")
-    call(["poetry", "run", "radon", "cc", "-s", PACKAGE_NAME])
+    call(["radon", "cc", "-s", PACKAGE_NAME])
     logger.info("Analyze the given Python modules and compute the Maintainability Index.")
-    call(["poetry", "run", "radon", "mi", "-s", PACKAGE_NAME])
+    call(["radon", "mi", "-s", PACKAGE_NAME])
     logger.info("Analyze the given Python modules and compute raw metrics.")
-    call(["poetry", "run", "radon", "raw", "-s", PACKAGE_NAME])
+    call(["radon", "raw", "-s", PACKAGE_NAME])
+
+
+def test():
+    logger.info("Running pytest...")
+    call(["pytest", "--html=report.html", "--cov={}".format(PACKAGE_NAME), "--cov-branch"])
