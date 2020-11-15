@@ -37,7 +37,12 @@ $ poetry run lint
 
 ## CreateAPI Documents
 ```sh
-$ poetry run document
+$ poetry run apidoc
+```
+
+## CreateTest Documents
+```sh
+$ poetry run testdoc
 ```
 
 ## Compute Metrics
