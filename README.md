@@ -1,6 +1,6 @@
 # poetry_template
 
-Project template for Python development with Poetry.
+Project template for Python development with Poetry.<br>
 Please edit according to your environment.
 
 
@@ -20,7 +20,7 @@ $ poetry update
 ## Use Scripts
 ### Pytest
 ```sh
-$ poetry run pytest
+$ poetry run test
 ```
 
 ### Format
